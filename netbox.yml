@@ -6,6 +6,5 @@ query_filters:
 group_by:
   - clusters
   - platforms
-  - device_roles
 compose:
   ansible_host: primary_ip4.address | ipaddr('address')

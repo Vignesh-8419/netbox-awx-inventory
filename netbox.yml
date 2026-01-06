@@ -1,10 +1,20 @@
-plugin: netbox.netbox.netbox
+plugin: netbox.netbox.nb_inventory
 api_endpoint: https://rocky-08-02.vgs.com
+token: "e3b30f093150844cb025c4b5b91c49f4b8285092"
 validate_certs: false
-query_filters:
-  - status: active
+config_context: true
+interfaces: true
+group_names_raw: true
 group_by:
-  - clusters
-  - platforms
-compose:
-  ansible_host: primary_ip4.address | ipaddr('address')
+- device_roles
+- platforms
+- device_types
+- tenants
+- sites
+- racks
+- tags
+- clusters
+query_filters: []
+device_query_filters:
+- has_primary_ip: 'true'
+flatten_custom_fields: true
